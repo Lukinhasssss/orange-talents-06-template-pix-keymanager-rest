@@ -145,7 +145,7 @@ internal class RegistrarChaveControllerTest {
 
     @Factory
     @Replaces(factory = PixGrpcClientFactory::class)
-    internal class MockitoStubFactory {
+    internal class RegistrarChaveStubFactory {
         @Singleton
         fun stubMock(): RegistrarChaveServiceGrpc.RegistrarChaveServiceBlockingStub {
             return mock(RegistrarChaveServiceGrpc.RegistrarChaveServiceBlockingStub::class.java)
