@@ -34,27 +34,23 @@ class ValidarChaveValidator : ConstraintValidator<ValidarChave, CadastrarChaveRe
 
         when (value.tipoChave.number) {
             1 -> {
-                value.valorChave.matches("^\\+[1-9][0-9]\\d{1,14}\$".toRegex())
+                isValid = value.valorChave.matches("^\\+[1-9][0-9]\\d{1,14}\$".toRegex())
                 context.messageTemplate("Celular com formato inválido!")
-                isValid = true
             }
 
             2 -> {
-                value.valorChave.matches("^[0-9]{11}\$".toRegex())
+                isValid = value.valorChave.matches("^[0-9]{11}\$".toRegex())
                 context.messageTemplate("Cpf com formato inválido!")
-                isValid = true
             }
 
             3 -> {
-                value.valorChave.matches("[a-zA-Z0-9+._%-+]{1,256}@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+".toRegex())
+                isValid = value.valorChave.matches("[a-zA-Z0-9+._%-+]{1,256}@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+".toRegex())
                 context.messageTemplate("Email com formato inválido!")
-                isValid = true
             }
 
             4 -> {
-                value.valorChave.isBlank()
+                isValid = value.valorChave.isBlank()
                 context.messageTemplate("Quando a chave for aleatória o valor não deve ser preenchido!")
-                isValid = true
             }
 
             else -> isValid = false

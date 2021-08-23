@@ -1,4 +1,4 @@
-package br.com.lukinhasssss.factory
+package br.com.lukinhasssss.grpc
 
 import br.com.lukinhasssss.ConsultarChaveServiceGrpc
 import br.com.lukinhasssss.ListarChavesServiceGrpc

@@ -1,4 +1,4 @@
-package br.com.lukinhasssss.exceptions
+package br.com.lukinhasssss.handler
 
 import io.grpc.Status
 import io.grpc.StatusRuntimeException
