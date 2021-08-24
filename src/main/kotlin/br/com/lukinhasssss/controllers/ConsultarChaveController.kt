@@ -2,7 +2,7 @@ package br.com.lukinhasssss.controllers
 
 import br.com.lukinhasssss.ConsultarChaveRequest
 import br.com.lukinhasssss.ConsultarChaveServiceGrpc
-import br.com.lukinhasssss.dto.response.BuscarChaveResponse
+import br.com.lukinhasssss.dto.response.DetalhesDaChaveResponse
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -13,7 +13,7 @@ class ConsultarChaveController(
 ) {
 
     @Get("/{idCliente}/pix/{pixId}")
-    fun consultarChave(idCliente: String, pixId: String): HttpResponse<BuscarChaveResponse> {
+    fun consultarChave(idCliente: String, pixId: String): HttpResponse<DetalhesDaChaveResponse> {
         val request = ConsultarChaveRequest.FiltroPorPixId.newBuilder()
             .setIdCliente(idCliente)
             .setPixId(pixId)
@@ -21,7 +21,7 @@ class ConsultarChaveController(
 
         val response = grpcClient.consultarChave(ConsultarChaveRequest.newBuilder().setPixId(request).build())
 
-        return HttpResponse.ok(BuscarChaveResponse(response))
+        return HttpResponse.ok(DetalhesDaChaveResponse(response))
     }
 
 }

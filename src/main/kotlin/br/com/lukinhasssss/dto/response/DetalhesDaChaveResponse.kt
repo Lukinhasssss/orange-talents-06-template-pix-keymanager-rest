@@ -7,7 +7,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 @Introspected
-class BuscarChaveResponse(response: ConsultarChaveResponse) {
+class DetalhesDaChaveResponse(response: ConsultarChaveResponse) {
 
     val pixId = response.pixId
     val idCliente = response.idCliente
