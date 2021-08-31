@@ -7,18 +7,19 @@ import br.com.lukinhasssss.validations.ValidarChave
 import io.micronaut.core.annotation.Introspected
 import org.jetbrains.annotations.NotNull
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Size
 
 @ValidarChave
 @Introspected
 data class CadastrarChaveRequest(
 
-    @NotNull("Campo obrigatório!")
+    @field:NotNull("Campo obrigatório!")
     val tipoChave: TipoChave,
 
-    @NotBlank(message = "Campo obrigatório!")
+    @field:Size(max = 77)
     val valorChave: String,
 
-    @NotNull("Campo obrigatório!")
+    @field:NotNull("Campo obrigatório!")
     val tipoConta: TipoConta
 
 ) {
